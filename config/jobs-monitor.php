@@ -18,6 +18,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Authorization
+    |--------------------------------------------------------------------------
+    |
+    | Optional Gate ability name that protects ALL UI and API routes. When
+    | set, every request must pass Gate::check('<ability>') or receive a
+    | 403.  Null means no gate check — routes are open to anyone who can
+    | reach them (still subject to whatever middleware you configure below).
+    |
+    | Example:
+    |   JOBS_MONITOR_GATE=view-jobs-monitor
+    |
+    |   // AuthServiceProvider
+    |   Gate::define('view-jobs-monitor', fn ($user) => $user->isAdmin());
+    |
+    */
+
+    'authorization' => env('JOBS_MONITOR_GATE'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Dashboard UI
     |--------------------------------------------------------------------------
     */
